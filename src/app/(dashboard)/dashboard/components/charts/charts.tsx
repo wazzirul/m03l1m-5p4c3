@@ -61,7 +61,9 @@ export function BaseChart({
         displayColors: true,
         callbacks: {
           label: function(context: TooltipItem<'line'>) {
-            return `${context.dataset.label}: ${formatValue(context.parsed.y)}`;
+            const y = context.parsed.y;
+            const valueLabel = (y == null) ? '—' : formatValue(y);
+            return `${context.dataset.label}: ${valueLabel}`;
           },
         },
       },
