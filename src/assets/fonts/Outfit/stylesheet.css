@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'Outfit';
+  src: local('Outfit'), local('Outfit-Regular'),
+    url('./Outfit-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: local('Outfit'), local('Outfit-Black'),
+    url('./Outfit-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: local('Outfit'), local('Outfit-Bold'),
+    url('./Outfit-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: local('Outfit'), local('Outfit-ExtraBold'),
+    url('./Outfit-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: local('Outfit'), local('Outfit-ExtraLight'),
+    url('./Outfit-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: local('Outfit'), local('Outfit-Light'),
+    url('./Outfit-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: local('Outfit'), local('Outfit-Medium'),
+    url('./Outfit-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: local('Outfit'), local('Outfit-SemiBold'),
+    url('./Outfit-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: local('Outfit'), local('Outfit-Thin'),
+    url('./Outfit-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-outfit {
+  font-family: 'Outfit', sans-serif;
+}

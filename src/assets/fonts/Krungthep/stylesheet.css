@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Krungthep';
+  src: local('Krungthep'), local('Krungthep-Regular'),
+    url('./krungthep.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-krungthep {
+  font-family: 'Krungthep', sans-serif;
+}
