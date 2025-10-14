@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Main from './main';
 import { slugData } from './slugData';
+import { TemplateStyleProps } from '@/app/components/display-templates/types';
 
 type SlugCode = keyof typeof slugData;
 
@@ -49,7 +50,15 @@ const Page = async ({ params }: PageProps) => {
     notFound();
   }
 
-  return <Main slugCode={slugCode} data={data} />;
+  // Cast to the expected shape to satisfy TS while data is normalized downstream
+  const typedData = data as {
+    title: string;
+    description: string;
+    layout: string;
+    style: number;
+    content?: TemplateStyleProps;
+  };
+  return <Main slugCode={slugCode} data={typedData} />;
 };
 
 export default Page;

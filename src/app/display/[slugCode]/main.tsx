@@ -47,7 +47,22 @@ interface MainProps {
 export default function Main({ slugCode, data }: MainProps) {
   const { layout, style, content } = data;
 
-  console.log(content);
+  // Normalize legacy data where imageData was a StaticImageData instead of { image: ... }
+  const normalizedContent: TemplateStyleProps | undefined = (() => {
+    if (!content) return content;
+    const mc = (content as any).mainContentData;
+    const id = mc?.imageData;
+    if (id && (typeof id !== 'object' || !('image' in id))) {
+      return {
+        ...content,
+        mainContentData: {
+          ...mc,
+          imageData: { image: id },
+        },
+      } as TemplateStyleProps;
+    }
+    return content;
+  })();
 
   // Render the appropriate component based on layout and style
   const renderTemplate = () => {
@@ -55,70 +70,70 @@ export default function Main({ slugCode, data }: MainProps) {
       case 'bottom':
         switch (style) {
           case 1:
-            return <Style1BottomLayout {...content} />;
+            return <Style1BottomLayout {...normalizedContent} />;
           case 2:
-            return <Style2BottomLayout {...content} />;
+            return <Style2BottomLayout {...normalizedContent} />;
           case 3:
-            return <Style3BottomLayout {...content} />;
+            return <Style3BottomLayout {...normalizedContent} />;
           case 4:
-            return <Style4BottomLayout {...content} />;
+            return <Style4BottomLayout {...normalizedContent} />;
           case 5:
-            return <Style5BottomLayout {...content} />;
+            return <Style5BottomLayout {...normalizedContent} />;
           case 6:
-            return <Style6BottomLayout {...content} />;
+            return <Style6BottomLayout {...normalizedContent} />;
           default:
-            return <Style1BottomLayout {...content} />;
+            return <Style1BottomLayout {...normalizedContent} />;
         }
       case 'left':
         switch (style) {
           case 1:
-            return <Style1LeftLayout {...content} />;
+            return <Style1LeftLayout {...normalizedContent} />;
           case 2:
-            return <Style2LeftLayout {...content} />;
+            return <Style2LeftLayout {...normalizedContent} />;
           case 3:
-            return <Style3LeftLayout {...content} />;
+            return <Style3LeftLayout {...normalizedContent} />;
           case 4:
-            return <Style4LeftLayout {...content} />;
+            return <Style4LeftLayout {...normalizedContent} />;
           case 5:
-            return <Style5LeftLayout {...content} />;
+            return <Style5LeftLayout {...normalizedContent} />;
           case 6:
-            return <Style6LeftLayout {...content} />;
+            return <Style6LeftLayout {...normalizedContent} />;
           default:
-            return <Style1LeftLayout {...content} />;
+            return <Style1LeftLayout {...normalizedContent} />;
         }
       case 'right':
         switch (style) {
           case 1:
-            return <Style1RightLayout {...content} />;
+            return <Style1RightLayout {...normalizedContent} />;
           case 2:
-            return <Style2RightLayout {...content} />;
+            return <Style2RightLayout {...normalizedContent} />;
           case 3:
-            return <Style3RightLayout {...content} />;
+            return <Style3RightLayout {...normalizedContent} />;
           case 4:
-            return <Style4RightLayout {...content} />;
+            return <Style4RightLayout {...normalizedContent} />;
           case 5:
-            return <Style5RightLayout {...content} />;
+            return <Style5RightLayout {...normalizedContent} />;
           case 6:
-            return <Style6RightLayout {...content} />;
+            return <Style6RightLayout {...normalizedContent} />;
           default:
-            return <Style1RightLayout {...content} />;
+            return <Style1RightLayout {...normalizedContent} />;
         }
       case 'l-layout':
         switch (style) {
           case 1:
-            return <Style1LLayout {...content} />;
+            return <Style1LLayout {...normalizedContent} />;
           case 2:
-            return <Style2LLayout {...content} />;
+            return <Style2LLayout {...normalizedContent} />;
           case 3:
-            return <Style3LLayout {...content} />;
+            return <Style3LLayout {...normalizedContent} />;
           case 4:
-            return <Style4LLayout {...content} />;
+            return <Style4LLayout {...normalizedContent} />;
           case 5:
-            return <Style5LLayout {...content} />;
+            return <Style5LLayout {...normalizedContent} />;
           case 6:
-            return <Style6LLayout {...content} />;
+            return <Style6LLayout {...normalizedContent} />;
           default:
-            return <Style1LLayout {...content} />;
+            return <Style1LLayout {...normalizedContent} />;
         }
       default:
         return <Style1BottomLayout />;
